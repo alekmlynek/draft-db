@@ -3,32 +3,31 @@
  * Class DDB (Draft Database)
  * File database for easy storage and retrieval of JSON objects.
  *
- * @author		Alek Mlynek
+ * @author	Alek Mlynek
  * @copyright	Copyright (C) 2012 - 2014 Alek Mlynek
- * @license		All Rights Reserved
- * @link			http://www.alekmlynek.com
- * @since			Version 1.0
+ * @license	All Rights Reserved
+ * @link	http://www.alekmlynek.com
+ * @since	Version 1.0
  */
 
 /**
 *
 ** PUBLIC FUNCTIONS **
-* get($key);															// Get document from DB
-* set($key, $value);											// Insert document indo DB
-* append($key, $value);										// Append key to end of file
-* touch($key);														// Touch document (for future use with expire)
-* unlink($key);														// Delete document from DB
+* get($key);							// Get document from DB
+* set($key, $value);			// Insert document indo DB
+* append($key, $value);		// Append key to end of file
+* touch($key);						// Touch document (for future use with expire)
+* unlink($key);						// Delete document from DB
 * 
 ** PRIVATE FUNCTIONS **
-* build_key_dir($key);										// Combine class settings and build directory structure for given key
-* build_key($key);												// Return a key based on class configuration
+* build_key_dir($key);		// Combine class settings and build directory structure for given key
+* build_key($key);				// Return a key based on class configuration
 **/
 
 class DDB
 {
 	public $db;
 
- 
 	//Private
 	private $db_prefix	= 'db/';				// This is where your DB is stored.
 	// private $db_prefix = '../db/';		// Use this to store outside of WWW root
