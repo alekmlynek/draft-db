@@ -28,7 +28,7 @@ class DDB
 {
 	public $db;
 
-
+ 
 	//Private
 	private $db_prefix	= 'db/';				// This is where your DB is stored.
 	// private $db_prefix = '../db/';		// Use this to store outside of WWW root
