@@ -6,7 +6,7 @@ A simple NoSQL PHP Class that mimics some of the behaviour of large NoSQL databa
 
 **PUBLIC FUNCTIONS**
 - get($key);                                            
-- set($key, $value, $encryption_flag);   
+- set($key, $value);   
 - append($key, $value);                
 - touch($key);                                       
 - unlink($key);                                      
