@@ -3,7 +3,7 @@
  * Class DDB (Draft Database)
  * File database for easy storage and retrieval of JSON objects.
  *
- * @author  	Alek Mlynek
+ * @author		Alek Mlynek
  * @copyright	Copyright (C) 2012 - 2014 Alek Mlynek
  * @license		All Rights Reserved
  * @link			http://www.alekmlynek.com
@@ -11,17 +11,17 @@
  */
 
 /**
-
+*
 ** PUBLIC FUNCTIONS **
-get($key);															// Get document from DB
-set($key, $value);		// Insert document indo DB
-append($key, $value);										// Append key to end of file
-touch($key);														// Touch document (for future use with expire)
-unlink($key);														// Delete document from DB
-
+* get($key);															// Get document from DB
+* set($key, $value);											// Insert document indo DB
+* append($key, $value);										// Append key to end of file
+* touch($key);														// Touch document (for future use with expire)
+* unlink($key);														// Delete document from DB
+* 
 ** PRIVATE FUNCTIONS **
-build_key_dir($key);										// Combine class settings and build directory structure for given key
-build_key($key);												// Return a key based on class configuration
+* build_key_dir($key);										// Combine class settings and build directory structure for given key
+* build_key($key);												// Return a key based on class configuration
 **/
 
 class DDB
@@ -30,11 +30,16 @@ class DDB
 
 
 	//Private
-	private $db_prefix	= '../db/';
-	private $db_ext			= '.json';
+	private $db_prefix	= 'db/';				// This is where your DB is stored.
+	// private $db_prefix = '../db/';		// Use this to store outside of WWW root
+
+	private $db_ext			= '.json';			// File extension
 
 	public function __construct()
 	{		
+		// TODO: Dependancy Injection
+		if(!is_dir($this->db_prefix))
+			mkdir($this->db_prefix);
 	}
 
 	/**
@@ -94,7 +99,7 @@ class DDB
 	}
 
 	/** 
-	* Touch database file
+	* Touch database file - useful in future when expiery is built in
 	* @param 		key (string)
 	* @return 	success	(BOOL)
 	*/
@@ -150,7 +155,7 @@ class DDB
 	private function build_key_dir($p_key)
 	{
 			//Don't check if true
-			if(is_dir($p_key))
+			if(is_dir($this->db_prefix . $p_key))
 				return TRUE;
 
 			//Dosn't exist, build it
@@ -166,13 +171,13 @@ class DDB
 				//Trail loop
 				for($j = 0; $j < $i; $j++ )
 				{
-					$dir_trail = $dir_trail . '/' . $dirs[$j];
+					$dir_trail = $this->db_prefix . $dir_trail . '/' . $dirs[$j];
 				}
-				$dir_build = $dir_trail . '/' . $dirs[$i];
+				$dir_build = $this->db_prefix . $dir_trail . '/' . $dirs[$i];
 
 				//If not directory, make it, rinse, repeat
-				if(!is_dir($this->db_prefix . $dir_build))
-					mkdir($this->db_prefix . $dir_build);
+				if(!is_dir($dir_build))
+					mkdir($dir_build);
 			}
 
 			//Ok, cool - profit.
