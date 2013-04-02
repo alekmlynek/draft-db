@@ -7,7 +7,7 @@
  * @copyright		Copyright (C) 2012 - 2014 Alek Mlynek
  * @license			All Rights Reserved
  * @link				http://www.alekmlynek.com
- * @since				Version 1.0
+ * @since				Version 1.0 
  */
 
 include 'DDB.php';
