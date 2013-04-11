@@ -25,4 +25,5 @@ When I created my blog, I needed a simple mechanism to store information. It had
 - Expand functionality
 
 **LICENSE**
+
 Do as you want with this class. I only ask that if you enhance my code in a beneficial way, that you push your changes so we can all take advantage of our collaborative efforts.
