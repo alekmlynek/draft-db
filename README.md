@@ -1,7 +1,7 @@
 draft-db
 ========
 
-A simple NoSQL PHP Class that mimics some of the behaviour of large NoSQL databases. It was created to help people learn and experiment with NoSQL without having to invest or setup a large NoSQL server.
+A simple NoSQL PHP Class that mimics some of the behavior of large NoSQL databases. It was created to help people learn and experiment with NoSQL without having to invest or setup a large NoSQL server.
 
 
 **PUBLIC FUNCTIONS**
@@ -23,3 +23,6 @@ When I created my blog, I needed a simple mechanism to store information. It had
 **Future TODO:**
 - Create a NodeJS version
 - Expand functionality
+
+**LICENSE**
+Do as you want with this class. I only ask that if you enhance my code in a beneficial way, that you push your changes so we can all take advantage of our collaborative efforts.
